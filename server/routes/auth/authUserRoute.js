@@ -285,12 +285,13 @@ authRouter.post("/api/signup", async (req, res) => {
 authRouter.post("/api/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(req.body);
 
     const user = await User.findOne({ email });
     if (!user) {
       return res
         .status(400)
-        .json({ msg: "User with this email does not exist!" });
+        .json({ error: "User with this email does not exist!" });
     }
 
     const isMatch = await bcryptjs.compare(password, user.password);
@@ -299,7 +300,7 @@ authRouter.post("/api/signin", async (req, res) => {
     }
     console.log(process.env.JWT_KEY);
     const token = jwt.sign({ id: user._id }, process.env.JWT_KEY);
-    res.json({ token, ...user._doc });
+    res.json({ token });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -450,6 +451,11 @@ authRouter.post("/tokenIsValid", async (req, res) => {
 authRouter.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);
   res.json({ ...user._doc, token: req.token });
+});
+
+authRouter.get("/userData", auth, async (req, res) => {
+  const user = await User.findById(req.user);
+  res.json({ ...user._doc });
 });
 
 module.exports = authRouter;
