@@ -10,7 +10,7 @@ class User {
   final String password;
   final String address;
   final String type;
-  final String token;
+  String token;
   final List<dynamic> cart;
 
   User({

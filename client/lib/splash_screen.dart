@@ -2,16 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:homelyf_services/choose_role_screen.dart';
-import 'package:homelyf_services/common/widgets/bottom_bar.dart';
-import 'package:homelyf_services/common/widgets/liquid_loader.dart';
-import 'package:homelyf_services/constants/global_variables.dart';
-import 'package:homelyf_services/features/admin/screens/admin_screen.dart';
-import 'package:homelyf_services/features/auth/services/auth_service.dart';
-import 'package:homelyf_services/features/partner/screens/partner_screen.dart';
+import 'package:homelyf_services/res/widgets/bottom_bar.dart';
+import 'package:homelyf_services/res/widgets/liquid_loader.dart';
+import 'package:homelyf_services/utils/global_variables.dart';
+import 'package:homelyf_services/view/admin/screens/admin_screen.dart';
+import 'package:homelyf_services/view/auth/services/auth_service.dart';
+import 'package:homelyf_services/view/partner/screens/partner_screen.dart';
 
-import 'package:homelyf_services/features/partner/services/partner_auth_service.dart';
-import 'package:homelyf_services/providers/partner_provider.dart';
-import 'package:homelyf_services/providers/user_provider.dart';
+import 'package:homelyf_services/view/partner/services/partner_auth_service.dart';
+import 'package:homelyf_services/view_model/partner_provider.dart';
+import 'package:homelyf_services/view_model/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:homelyf_services/common/widgets/custom_button.dart';
-import 'package:homelyf_services/constants/global_variables.dart';
-import 'package:homelyf_services/features/auth/screens/signin_screen.dart';
-import 'package:homelyf_services/features/partner/screens/signin_partner.dart';
+import 'package:homelyf_services/res/widgets/custom_button.dart';
+import 'package:homelyf_services/utils/global_variables.dart';
+import 'package:homelyf_services/view/auth/screens/signin_screen.dart';
+import 'package:homelyf_services/view/partner/screens/signin_partner.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 class ChooseRoleScreen extends StatefulWidget {

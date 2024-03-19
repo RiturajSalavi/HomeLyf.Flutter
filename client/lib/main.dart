@@ -1,10 +1,10 @@
 import 'package:flutter/services.dart';
-import 'package:homelyf_services/constants/global_variables.dart';
-import 'package:homelyf_services/features/auth/services/auth_service.dart';
-import 'package:homelyf_services/features/partner/services/partner_auth_service.dart';
-import 'package:homelyf_services/providers/partner_provider.dart';
-import 'package:homelyf_services/providers/user_provider.dart';
-import 'package:homelyf_services/router.dart';
+import 'package:homelyf_services/utils/global_variables.dart';
+import 'package:homelyf_services/utils/routes/routes.dart';
+import 'package:homelyf_services/view/auth/services/auth_service.dart';
+import 'package:homelyf_services/view/partner/services/partner_auth_service.dart';
+import 'package:homelyf_services/view_model/partner_provider.dart';
+import 'package:homelyf_services/view_model/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:homelyf_services/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      onGenerateRoute: (settings) => generateRoute(settings),
+      onGenerateRoute: (settings) => Routes.generateRoute(settings),
       home: const SplashScreen(),
     );
   }
