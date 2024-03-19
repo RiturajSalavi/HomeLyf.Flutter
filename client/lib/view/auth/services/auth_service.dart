@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dio/dio.dart';
 import 'package:homelyf_services/repository/auth_repository.dart';
 import 'package:homelyf_services/res/widgets/bottom_bar.dart';
 import 'package:homelyf_services/utils/error_handling.dart';
@@ -266,7 +267,7 @@ class AuthService {
   }) async {
     try {
       String data = jsonEncode({
-        'email': email,
+        'emailAddress': email,
         'password': password,
         "type": "c",
       });
@@ -298,11 +299,12 @@ class AuthService {
           String data = jsonEncode({});
           Map<String, String> headers = {
             'Content-Type': 'application/json; charset=UTF-8',
-            'x-auth-token': token!
+            'Authorization':"Bearer " + token!
           };
           http.Response userRes = await _myRepo.getUserDataApi(data, headers);
+          print(userRes.body);
           Provider.of<UserProvider>(context, listen: false)
-              .setUser(userRes.body);
+              .setUser(jsonEncode(userRes.body));
           if (prefs.getString('x-auth-token') != null &&
               prefs.getString('x-auth-token')!.isNotEmpty) {
             Navigator.pushAndRemoveUntil(
@@ -312,7 +314,7 @@ class AuthService {
                     Provider.of<UserProvider>(context, listen: false)
                                 .user
                                 .type ==
-                            'user'
+                            'C'
                         ? const BottomBar()
                         : const AdminScreen(),
               ),
